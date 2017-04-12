@@ -24,12 +24,31 @@ import shutil
 from . import txt
 
 
-def debug(where, what, value):
+def blue(where, what, value):
     """Helper for printing debug messages"""
-    print("{} In function {} -> '{} = {}'".format(txt.DBG_CLR,
-                                                  where,
-                                                  what,
-                                                  value))
+    print("{}In function{} {} -> '{} = {}'".format(txt.BS,
+                                                   where,
+                                                   txt.CE,
+                                                   what,
+                                                   value))
+
+
+def green(where, what, value):
+    """Helper for printing debug messages"""
+    print("{}In function{} {} -> '{} = {}'".format(txt.GS,
+                                                   where,
+                                                   txt.CE,
+                                                   what,
+                                                   value))
+
+
+def yellow(where, what, value):
+    """Helper for printing debug messages"""
+    print("{}In function{} {} -> '{} = {}'".format(txt.YS,
+                                                   where,
+                                                   txt.CE,
+                                                   what,
+                                                   value))
 
 
 def internet_message():

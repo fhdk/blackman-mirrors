@@ -8,7 +8,6 @@ A fork of Manjaros pacman-mirrors package ported to Blackarch Linux and is a pac
 
 - Generate a new mirror list by using several options:
     - method: rank or random.
-    - branch: stable, testing or unstable.
     - country: a single, a list or all.
     - fasttrack: updated and responsive mirrors
     - geoip: mirrors for country if available

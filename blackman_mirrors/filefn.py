@@ -86,27 +86,25 @@ def output_mirror_list(config, servers, custom=False, quiet=False, interactive=F
                     # write list entry
                     write_mirrorlist_entry(outfile, server)
                     if not quiet:
-                        message = "   {:<15} : {}{}".format(server["country"],
-                                                            server["url"],
-                                                            config["branch"])
+                        message = "   {:<5} : {}".format(server["country"],
+                                                         server["url"])
                         print("{:.{}}".format(message, cols))
                 else:
                     url = server["url"]
                     for protocol in enumerate(server["protocols"]):
-                        pos = url.find(":")
                         msg_url = server["url"] = "{}{}{}".format(protocol[1],
-                                                                  url[pos:],
-                                                                  config["branch"])
+                                                                  "://",
+                                                                  url)
 
                         server["url"] = "{}{}{}{}".format(protocol[1],
-                                                          url[pos:],
-                                                          config["branch"],
+                                                          "://",
+                                                          url,
                                                           config["repo_arch"])
                         # write list entry
                         write_mirrorlist_entry(outfile, server)
                         if not quiet:
-                            message = "   {:<15} : {}".format(server["country"],
-                                                              msg_url)
+                            message = "   {:<5} : {}".format(server["country"],
+                                                             msg_url)
                             print("{:.{}}".format(message, cols))
 
             print(".: {} {}: {}".format(txt.INF_CLR,

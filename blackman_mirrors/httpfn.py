@@ -32,63 +32,43 @@ from urllib.request import urlopen
 from . import configuration as conf
 from . import filefn
 from . import jsonfn
-from . import miscfn
+from . import bafn
 from . import txt
 
 
 def download_mirrors(config):
     """Retrieve mirrors from manjaro.org
     :param config:
-    :returns: tuple with success for mirrors.json and status.json
-    :rtype: tuple
+    :returns: bool with success
+    :rtype: bool
     """
     fetchmirrors = False
-    fetchstatus = False
     try:
-        with urlopen(config["url_mirrors_json"]) as response:
-            mirrorlist = json.loads(
-                response.read().decode("utf8"),
-                object_pairs_hook=collections.OrderedDict)
+        with urlopen(config["url_mirror_list"]) as response:
+            mirrorlist = response.read().decode("utf8")
+            mirrorlist = bafn.format_mirror(mirrorlist)
         fetchmirrors = True
         jsonfn.write_json_file(mirrorlist, config["mirror_file"])
     except (HTTPException, json.JSONDecodeError, URLError):
         pass
-    try:
-        with urlopen(config["url_status_json"]) as response:
-            statuslist = json.loads(
-                response.read().decode("utf8"),
-                object_pairs_hook=collections.OrderedDict)
-        fetchstatus = True
-        jsonfn.write_json_file(statuslist, config["status_file"])
-    except (HTTPException, json.JSONDecodeError, URLError):
-        pass
-    return fetchmirrors, fetchstatus
+
+    return fetchmirrors
 
 
 def get_geoip_country():
     """Try to get the user country via GeoIP
     :return: country name or nothing
     """
-    country_name = None
+    country_code = None
     try:
         res = urlopen("http://freegeoip.net/json/")
         json_obj = json.loads(res.read().decode("utf8"))
     except (URLError, HTTPException, json.JSONDecodeError):
         pass
     else:
-        if "country_name" in json_obj:
-            country_name = json_obj["country_name"]
-            country_fix = {
-                "Brazil": "Brasil",
-                "Costa Rica": "Costa_Rica",
-                "Czech Republic": "Czech",
-                "South Africa": "Africa",
-                "United Kingdom": "United_Kingdom",
-                "United States": "United_States",
-            }
-            if country_name in country_fix.keys():
-                country_name = country_fix[country_name]
-    return country_name
+        if "country_code" in json_obj:
+            country_code = json_obj["country_code"]
+    return country_code
 
 
 def get_mirror_response(url, maxwait=2, count=1, quiet=False):
@@ -105,7 +85,7 @@ def get_mirror_response(url, maxwait=2, count=1, quiet=False):
     message = ""
     try:
         for _ in range(count):
-            urlopen(url + "state", timeout=maxwait)
+            urlopen(url, timeout=maxwait)
         probe_stop = time.time()
     except URLError as err:
         if hasattr(err, "reason"):
@@ -160,7 +140,7 @@ def update_mirrors(config):
     :rtype: tuple
     """
     result = None
-    connected = is_connected("http://repo.manjaro.org")
+    connected = is_connected("https://blackarch.org")
     if connected:
         print(".: {} {} {}".format(txt.INF_CLR,
                                    txt.DOWNLOADING_MIRROR_FILE,

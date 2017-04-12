@@ -20,17 +20,34 @@
 
 """blackman-mirrors Configuration"""
 
+# # http constants
+# URL_MIRROR_LIST = "https://raw.githubusercontent.com/BlackArch/blackarch/master/mirror/mirror.lst"
+# # etc
+# CONFIG_FILE = "/etc/blackman-mirrors.conf"
+# MIRROR_LIST = "/etc/pacman.d/blackarch-mirrorlist"
+# # blackman-mirrors
+# MIRROR_DIR = "/var/lib/blackman-mirrors/"
+# CUSTOM_FILE = "/var/lib/blackman-mirrors/custom-mirrors.json"
+# MIRROR_FILE = "/var/lib/blackman-mirrors/mirrors.json"
+# STATUS_FILE = "/var/lib/blackman-mirrors/status.json"
+# # special cases
+# FALLBACK = "/usr/share/blackman-mirrors/mirrors.json"
+# # repo constants
+# REPO_ARCH = "$repo/os/$arch"
+
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 # http constants
-URL_MIRROR_LIST = "https://github.com/BlackArch/blackarch/blob/master/mirror/mirror.lst"
+URL_MIRROR_LIST = "https://raw.githubusercontent.com/BlackArch/blackarch/master/mirror/mirror.lst"
+# URL_STATUS_JSON = "http://repo.manjaro.org/status.json"
 # etc
-CONFIG_FILE = "/etc/blackman-mirrors.conf"
-MIRROR_LIST = "/etc/pacman.d/mirrorlist"
+CONFIG_FILE = "tests/mock/etc/blackman-mirrors.conf"
+MIRROR_LIST = "tests/mock/etc/mirrorlist"
 # blackman-mirrors
-MIRROR_DIR = "/var/lib/blackman-mirrors/"
-CUSTOM_FILE = "/var/lib/blackman-mirrors/custom-mirrors.json"
-MIRROR_FILE = "/var/lib/blackman-mirrors/mirrors.json"
-STATUS_FILE = "/var/lib/blacman-mirrors/status.json"
+MIRROR_DIR = "tests/mock/var/"
+CUSTOM_FILE = "tests/mock/var/custom-mirrors.json"
+MIRROR_FILE = "tests/mock/var/mirrors.json"
+STATUS_FILE = "tests/mock/var/status.json"
 # special cases
-FALLBACK = "/usr/share/blackman-mirrors/mirrors.json"
-#
+FALLBACK = "tests/mock/usr/mirrors.json"
+# repo constants
 REPO_ARCH = "$repo/os/$arch"

@@ -18,12 +18,8 @@
 #
 # Author(s): Ramon Buldó <rbuldo@gmail.com>
 
-import os
-import shutil
 from blackman_mirrors import blackman_mirrors
 from blackman_mirrors import i18n
-from blackman_mirrors.configuration import O_CUST_FILE
-from blackman_mirrors import bafn
 
 _ = i18n.language.gettext
 

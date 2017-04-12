@@ -12,21 +12,21 @@ from urllib.error import URLError
 
 from setuptools import setup
 
+from blackman_mirrors import bafn
+
 
 def update_mirror_file():
     """update mirrors.json from github"""
-    countries = list()
+    mirrorlist = list()
     try:
         with urlopen("https://github.com/manjaro/manjaro-web-repo/raw/master/mirrors.json") as response:
-            mirrors = response.read().decode("utf8")
-            for mirror in mirrors:
-                pass
-            countries = json.loads(response.read().decode("utf8"), object_pairs_hook=collections.OrderedDict)
+            mirrorlist = response.read().decode("utf8")
+            mirrorlist = bafn.format_mirror(mirrorlist)
     except (HTTPException, json.JSONDecodeError, URLError, timeout):
         pass
-    if countries:
+    if mirrorlist:
         with open("share/mirrors.json", "w") as outfile:
-            json.dump(countries, outfile)
+            json.dump(mirrorlist, outfile)
 
 
 def read(*names, **kwargs):
@@ -65,11 +65,11 @@ update_mirror_file()
 
 setup(
     name='blackman-mirrors',
-    version=find_version("pacman_mirrors", "__init__.py"),
+    version=find_version("blackman_mirrors", "__init__.py"),
     description="Package that provides all mirrors for BlackArch Linux.",
     long_description=README + '\n\n' + CHANGELOG,
     author="Roland Singer, Esclapion, philm, Ramon Buldó, Hugo Posnic, Frede Hundewadt",
-    author_email='ramon@manjaro.org',
+    author_email='f@hundewadt.dk',
     url='https://github.com/fhdk/blackman-mirrors',
     packages=['blackman_mirrors'],
     package_dir={'blackman_mirrors': 'blackman_mirrors'},

@@ -41,7 +41,6 @@ FILE = _("FILE")
 SECONDS = _("SECONDS")
 DIGIT = _("DIGIT")
 # help messages
-HLP_ARG_BRANCH = _("Branch name")
 HLP_ARG_COUNTRY = _(
     "Comma separated list of countries, from which mirrors will be used")
 HLP_ARG_DEFAULT = _("Load default mirror file")
@@ -57,14 +56,12 @@ HLP_ARG_PATH = _("Mirrors list path")
 HLP_ARG_QUIET = _("Quiet mode - less verbose output")
 HLP_ARG_TIMEOUT = _("Maximum waiting time for server response")
 HLP_ARG_VERSION = _("Print the blackman-mirrors version")
-HLP_ARG_FASTTRACK = _("A quick mirrorlist. Overrides")
 HLP_ARG_LIST = _("List all available countries")
 # messages
 AVAILABLE_COUNTRIES = _("Available countries are")
 CANNOT_DOWNLOAD_FILE = _("Could not download from")
 CANNOT_READ_FILE = _("Cannot read file")
 CANNOT_WRITE_FILE = _("Cannot write file")
-CONVERT_CUSTOM_MIRROR_FILE = _("Converting custom mirror file to new format")
 CUSTOM_MIRROR_FILE = _("Custom mirror file")
 CUSTOM_MIRROR_FILE_SAVED = _("Custom mirror file saved")
 CUSTOM_MIRROR_LIST = _("User generated mirror list")
@@ -93,8 +90,8 @@ USING_ALL_MIRRORS = _("Using all mirrors")
 USING_CUSTOM_FILE = _("Using custom mirror file")
 USING_DEFAULT_FILE = _("Using default mirror file")
 # interactive messages
-I_TITLE = _("Manjaro mirrors by response time")
-I_TITLE_RANDOM = _("Manjaro mirrors in random order")
+I_TITLE = _("Blackarch mirrors by response time")
+I_TITLE_RANDOM = _("Blackarch mirrors in random order")
 I_LIST_TITLE = _("Check mirrors for your personal list")
 I_USE = _("Use")
 I_COUNTRY = _("Country")
@@ -108,8 +105,7 @@ I_USE_THESE_MIRRORS = _("I want to use these mirrors")
 
 # NON TRANSLATABLE STRINGS
 HOUSTON = "Houston?! We have a problem."
-OVERRIDE_OPT = "-c -i -m --geoip"
-REPO_SERVER = "repo.manjaro.org"
+REPO_SERVER = "blackarch github repo"
 RESET_TIP = "blackman-mirrors -c all"
 # mirror status constants
 LASTSYNC_OK = "24:00"  # last syncronize in the past 24 hours

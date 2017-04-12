@@ -43,7 +43,7 @@ class TestPacmanMirrors(unittest.TestCase):
             "repo_arch": conf.REPO_ARCH,
             "status_file": conf.STATUS_FILE,
             "ssl": False,
-            "url_mirrors_json": conf.URL_MIRROR_JSON,
+            "url_mirror_list": conf.URL_MIRROR_JSON,
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
@@ -89,7 +89,7 @@ class TestPacmanMirrors(unittest.TestCase):
             "repo_arch": conf.REPO_ARCH,
             "status_file": conf.STATUS_FILE,
             "ssl": False,
-            "url_mirrors_json": conf.URL_MIRROR_JSON,
+            "url_mirror_list": conf.URL_MIRROR_JSON,
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
@@ -135,7 +135,7 @@ class TestPacmanMirrors(unittest.TestCase):
             "repo_arch": conf.REPO_ARCH,
             "status_file": conf.STATUS_FILE,
             "ssl": False,
-            "url_mirrors_json": conf.URL_MIRROR_JSON,
+            "url_mirror_list": conf.URL_MIRROR_JSON,
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",

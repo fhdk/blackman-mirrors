@@ -28,7 +28,7 @@ class TestHttpFn(unittest.TestCase):
     def test_geoip_available(self, mock_build_config, mock_get_geoip_country, mock_os_getuid):
         """TEST: Geoip country IS avaiable"""
         mock_os_getuid.return_value = 0
-        mock_get_geoip_country.return_value = "France"
+        mock_get_geoip_country.return_value = "FR"
         mock_build_config.return_value = {
             "branch": "stable",
             "branches": conf.BRANCHES,
@@ -44,7 +44,7 @@ class TestHttpFn(unittest.TestCase):
             "repo_arch": conf.REPO_ARCH,
             "ssl": False,
             "status_file": conf.STATUS_FILE,
-            "url_mirrors_json": conf.URL_MIRROR_JSON,
+            "url_mirror_list": conf.URL_MIRROR_JSON,
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
@@ -54,7 +54,7 @@ class TestHttpFn(unittest.TestCase):
             app.config = configfn.build_config()
             app.command_line_parse()
             app.load_all_mirrors()
-            assert app.selected_countries == "France"
+            assert app.selected_countries == "FR"
 
     @patch("os.getuid")
     @patch.object(httpfn, "get_geoip_country")
@@ -78,7 +78,7 @@ class TestHttpFn(unittest.TestCase):
             "repo_arch": conf.REPO_ARCH,
             "ssl": False,
             "status_file": conf.STATUS_FILE,
-            "url_mirrors_json": conf.URL_MIRROR_JSON,
+            "url_mirror_list": conf.URL_MIRROR_JSON,
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",

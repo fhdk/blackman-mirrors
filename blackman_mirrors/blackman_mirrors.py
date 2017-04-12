@@ -65,7 +65,6 @@ class PacmanMirrors:
         }
         self.custom = False
         self.default = False
-        self.fasttrack = None
         self.geoip = False
         self.interactive = False
         self.max_wait_time = 2
@@ -85,10 +84,6 @@ class PacmanMirrors:
                             type=str,
                             choices=["rank", "random"],
                             help=txt.HLP_ARG_METHOD)
-        parser.add_argument("-b", "--branch",
-                            type=str,
-                            choices=["stable", "testing", "unstable"],
-                            help=txt.HLP_ARG_BRANCH)
         parser.add_argument("-c", "--country",
                             type=str,
                             help=txt.HLP_ARG_COUNTRY)
@@ -123,36 +118,22 @@ class PacmanMirrors:
         parser.add_argument("-q", "--quiet",
                             action="store_true",
                             help=txt.HLP_ARG_QUIET)
-        parser.add_argument("-f", "--fasttrack",
-                            type=int,
-                            metavar=txt.DIGIT,
-                            help="{} {}".format(txt.HLP_ARG_FASTTRACK,
-                                                txt.OVERRIDE_OPT))
         parser.add_argument("-l", "--list",
                             action="store_true",
                             help=txt.HLP_ARG_LIST)
         parser.add_argument("--default",
                             action="store_true",
                             help=txt.HLP_ARG_DEFAULT)
-        # api arguments
-        parser.add_argument("-a", "--api",
-                            action="store_true")
-        parser.add_argument("--get-branch",
-                            action="store_true")
-        parser.add_argument("--set-branch",
-                            action="store_true")
-        parser.add_argument("--prefix",
-                            type=str)
 
         args = parser.parse_args()
 
         if len(sys.argv) == 1:
             parser.print_help()
-            print("{}pacman-mirrors {}{}".format(txt.GS, __version__, txt.CE))
+            print("{}blackman-mirrors {}{}".format(txt.RS, __version__, txt.CE))
             sys.exit(0)
 
         if args.version:
-            print("{}pacman-mirrors {}{}".format(txt.GS, __version__, txt.CE))
+            print("{}blackman-mirrors {}{}".format(txt.RS, __version__, txt.CE))
             sys.exit(0)
 
         if args.no_update:
@@ -169,9 +150,6 @@ class PacmanMirrors:
 
         if args.method:
             self.config["method"] = args.method
-
-        if args.branch:
-            self.config["branch"] = args.branch
 
         if args.timeout:
             self.max_wait_time = args.timeout
@@ -203,49 +181,6 @@ class PacmanMirrors:
             self.custom = True
             self.config["only_country"] = args.country.split(",")
 
-        if args.fasttrack:
-            self.fasttrack = args.fasttrack
-            self.geoip = False
-            self.custom = False
-            self.config["only_country"] = []
-
-        if args.api:
-            if args.set_branch:
-                self.api_config(prefix=args.prefix, set_branch=True)
-            elif args.get_branch:
-                self.api_config(prefix=args.prefix, get_branch=True)
-            else:
-                self.api_config(prefix=args.prefix)
-
-    def api_config(self, prefix=None, set_branch=False, get_branch=False):
-        """Api functions
-        :param prefix: prefix to the config paths
-        :param set_branch: writes branch to blackman-mirrors
-        :param get_branch: exit with -1 -2 -3
-        """
-        if prefix:
-            if "$" in prefix:
-                prefix = os.environ.get(prefix)
-            self.config["config_file"] = \
-                prefix + self.config["config_file"]
-            self.config["custom_file"] = \
-                prefix + self.config["custom_file"]
-            self.config["fallback_file"] = \
-                prefix + self.config["fallback_file"]
-            self.config["mirror_dir"] = \
-                prefix + self.config["mirror_dir"]
-            self.config["mirror_file"] = \
-                prefix + self.config["mirror_file"]
-            self.config["mirror_list"] = \
-                prefix + self.config["mirror_list"]
-            self.config["status_file"] = \
-                prefix + self.config["status_file"]
-        if set_branch:
-            configfn.api_write_branch(self.config["branch"],
-                                      self.config["config_file"])
-        if get_branch:
-            sys.exit(self.config["branch"])
-
     def build_common_mirror_list(self):
         """Generate common mirrorlist"""
         worklist = mirrorfn.filter_mirror_country(self.mirrors.mirrorlist,
@@ -265,48 +200,6 @@ class PacmanMirrors:
                 configfn.modify_config(self.config, custom=self.custom)
             else:
                 configfn.modify_config(self.config, custom=self.custom)
-        else:
-            print(".: {} {}".format(txt.WRN_CLR, txt.NO_SELECTION))
-            print(".: {} {}".format(txt.INF_CLR, txt.NO_CHANGE))
-
-    def build_fasttrack_mirror_list(self, number):
-        """Fast-track the mirrorlist by filtering only up2date mirrors"""
-        # randomize the load on up2date mirrors
-        worklist = self.mirrors.mirrorlist
-        shuffle(worklist)
-        if self.config["ssl"]:
-            worklist = mirrorfn.filter_mirror_ssl(worklist)
-
-        up2date = [item for item in worklist if item["branches"] == [1, 1, 1]]
-        worklist = []
-        print(".: {}: {} - {}".format(txt.INF_CLR,
-                                      txt.QUERY_MIRRORS,
-                                      txt.TAKES_TIME))
-        counter = 0
-        cols, lines = miscfn.terminal_size()
-        for mirror in up2date:
-            if not self.quiet:
-                message = "   ..... {:<15}: {}: {}".format(
-                    mirror["country"], mirror["last_sync"], mirror["url"])
-                print("{:.{}}".format(message, cols), end='')
-                sys.stdout.flush()
-            resp_time = httpfn.get_mirror_response(mirror["url"],
-                                                   quiet=self.quiet,
-                                                   maxwait=self.max_wait_time)
-            mirror["resp_time"] = resp_time
-            if float(resp_time) > self.max_wait_time:
-                if not self.quiet:
-                    print("\r")
-            else:
-                if not self.quiet:
-                    print("\r   {:<5}{}{} ".format(txt.GS, resp_time, txt.CE))
-                worklist.append(mirror)
-                counter += 1
-            if counter == number:
-                break
-        worklist = sorted(worklist, key=itemgetter("resp_time"))
-        if worklist:
-            filefn.output_mirror_list(self.config, worklist, quiet=self.quiet)
         else:
             print(".: {} {}".format(txt.WRN_CLR, txt.NO_SELECTION))
             print(".: {} {}".format(txt.INF_CLR, txt.NO_CHANGE))
@@ -332,12 +225,11 @@ class PacmanMirrors:
         interactive_list = []
         for mirror in worklist:
             for protocol in enumerate(mirror["protocols"]):
-                pos = mirror["url"].find(":")
                 interactive_list.append({
                     "country": mirror["country"],
                     "resp_time": mirror["resp_time"],
                     "last_sync": mirror["last_sync"],
-                    "url": "{}{}".format(protocol[1], mirror["url"][pos:])
+                    "url": "{}{}{}".format(protocol[1], "://", mirror["url"])
                 })
 
         if self.no_display:
@@ -464,12 +356,16 @@ class PacmanMirrors:
         cols, lines = miscfn.terminal_size()
         for mirror in worklist:
             if not self.quiet:
-                message = "   ..... {:<15}: {}".format(mirror["country"],
-                                                       mirror["url"])
+                message = "   ..... {:<1}: {}{}{}".format(mirror["country"],
+                                                          mirror["protocols"][0],
+                                                          "://",
+                                                          mirror["url"])
                 print("{:.{}}".format(message, cols), end='')
                 sys.stdout.flush()
             # let's see how responsive you are
-            resp_time = httpfn.get_mirror_response(mirror["url"],
+            resp_time = httpfn.get_mirror_response("{}{}{}".format(mirror["protocols"][0],
+                                                                   "://",
+                                                                   mirror["url"]),
                                                    quiet=self.quiet,
                                                    maxwait=self.max_wait_time)
             mirror["resp_time"] = resp_time
@@ -486,18 +382,15 @@ class PacmanMirrors:
         (self.config, self.custom) = configfn.build_config()
         filefn.dir_must_exist(self.config["mirror_dir"])
         self.command_line_parse()
-        self.network = httpfn.is_connected("https://manjaro.org")
+        self.network = httpfn.is_connected("https://blackarch.org")
         if self.network:
             httpfn.update_mirrors(self.config)
         else:
             # negative on network
             miscfn.internet_message()
             self.config["method"] = "random"  # use random instead of rank
-            self.fasttrack = False  # using fasttrack is not possible
         self.load_all_mirrors()
-        if self.fasttrack:
-            self.build_fasttrack_mirror_list(self.fasttrack)
-        elif self.interactive:
+        if self.interactive:
             self.build_interactive_mirror_list()
         else:
             self.build_common_mirror_list()

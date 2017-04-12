@@ -28,34 +28,6 @@ from . import txt
 from . import configuration as conf
 
 
-def api_write_branch(branch, filename):
-    """Write branch"""
-    if branch == "stable":
-        branch = "# Branch = stable\n"
-    else:
-        branch = "Branch = {}\n".format(branch)
-    try:
-        with open(
-            filename) as cnf, tempfile.NamedTemporaryFile(
-            "w+t", dir=os.path.dirname(
-                filename), delete=False) as tmp:
-            replaced = False
-            for line in cnf:
-                if "Branch = " in line:
-                    tmp.write(branch)
-                    replaced = True
-                else:
-                    tmp.write("{}".format(line))
-            if not replaced:
-                tmp.write(branch)
-        os.replace(tmp.name, filename)
-        os.chmod(filename, 0o644)
-    except OSError as err:
-        print(".: {} {}: {}: {}".format(txt.ERR_CLR, txt.CANNOT_READ_FILE,
-                                        err.filename, err.strerror))
-        sys.exit(1)
-
-
 def build_config():
     """Get config informations
     :returns: config, custom
@@ -76,8 +48,8 @@ def build_config():
         "repo_arch": conf.REPO_ARCH,
         "ssl": False,
         "status_file": conf.STATUS_FILE,
-        "url_mirrors_json": conf.URL_MIRROR_LIST,
-        "url_status_json": conf.URL_STATUS_JSON
+        "url_mirror_list": conf.URL_MIRROR_LIST
+        # "url_status_json": conf.URL_STATUS_JSON
     }
     # try to replace default entries by reading conf file
     try:
