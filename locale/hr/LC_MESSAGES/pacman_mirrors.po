@@ -2,17 +2,17 @@
 # Copyright (C) 2017 ORGANIZATION
 # This file is distributed under the same license as the pacman-mirrors
 # project.
-# 
+#
 # Translators:
 # Lovro Kudelić <lovro.kudelic@outlook.com>, 2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: manjaro-pacman-mirrors\n"
+"Project-Id-Version: manjaro-blackman-mirrors\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-20 15:44+0100\n"
 "PO-Revision-Date: 2017-02-27 16:09+0000\n"
 "Last-Translator: Lovro Kudelić <lovro.kudelic@outlook.com>\n"
-"Language-Team: Croatian (http://www.transifex.com/manjarolinux/manjaro-pacman-mirrors/language/hr/)\n"
+"Language-Team: Croatian (http://www.transifex.com/manjarolinux/manjaro-blackman-mirrors/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -109,8 +109,8 @@ msgid "Maximum waiting time for server response"
 msgstr "Maksimalno vrijeme čekanja na odgovor poslužitelja"
 
 #: pacman_mirrors/txt.py:57
-msgid "Print the pacman-mirrors version"
-msgstr "Ispiši verziju pacman-mirrors-a"
+msgid "Print the blackman-mirrors version"
+msgstr "Ispiši verziju blackman-mirrors-a"
 
 #: pacman_mirrors/txt.py:58
 msgid "A quick mirrorlist. Overrides -cim --geoip"
@@ -201,8 +201,8 @@ msgid "Randomizing mirror list"
 msgstr "Slučajno odabirem listu poslužitelja"
 
 #: pacman_mirrors/txt.py:81
-msgid "To reset custom config run `pacman-mirrors -c all`"
-msgstr "Za resetiranje prilagođene konfiguracije pokrenite `pacman-mirrors -c all`"
+msgid "To reset custom config run `blackman-mirrors -c all`"
+msgstr "Za resetiranje prilagođene konfiguracije pokrenite `blackman-mirrors -c all`"
 
 #: pacman_mirrors/txt.py:82
 msgid "This may take some time"

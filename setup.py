@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import collections
 import io
@@ -18,6 +18,9 @@ def update_mirror_file():
     countries = list()
     try:
         with urlopen("https://github.com/manjaro/manjaro-web-repo/raw/master/mirrors.json") as response:
+            mirrors = response.read().decode("utf8")
+            for mirror in mirrors:
+                pass
             countries = json.loads(response.read().decode("utf8"), object_pairs_hook=collections.OrderedDict)
     except (HTTPException, json.JSONDecodeError, URLError, timeout):
         pass
@@ -61,18 +64,18 @@ test_requirements = [
 update_mirror_file()
 
 setup(
-    name='pacman-mirrors',
+    name='blackman-mirrors',
     version=find_version("pacman_mirrors", "__init__.py"),
-    description="Package that provides all mirrors for Manjaro Linux.",
+    description="Package that provides all mirrors for BlackArch Linux.",
     long_description=README + '\n\n' + CHANGELOG,
     author="Roland Singer, Esclapion, philm, Ramon Buldó, Hugo Posnic, Frede Hundewadt",
     author_email='ramon@manjaro.org',
-    url='https://github.com/manjaro/pacman-mirrors',
-    packages=['pacman_mirrors'],
-    package_dir={'pacman_mirrors': 'pacman_mirrors'},
-    data_files=[('/etc', ['conf/pacman-mirrors.conf']),
+    url='https://github.com/fhdk/blackman-mirrors',
+    packages=['blackman_mirrors'],
+    package_dir={'blackman_mirrors': 'blackman_mirrors'},
+    data_files=[('/etc', ['conf/blackman-mirrors.conf']),
                 ('/etc/pacman.d', []),
-                ('share/pacman-mirrors', ['share/mirrors.json']),
+                ('share/blackman-mirrors', ['share/mirrors.json']),
                 ('share/locale/bg/LC_MESSAGES', ['locale/bg/LC_MESSAGES/pacman_mirrors.mo']),
                 ('share/locale/ca/LC_MESSAGES', ['locale/ca/LC_MESSAGES/pacman_mirrors.mo']),
                 ('share/locale/cs/LC_MESSAGES', ['locale/cs/LC_MESSAGES/pacman_mirrors.mo']),
@@ -98,11 +101,11 @@ setup(
                 ('share/locale/uk_UA/LC_MESSAGES', ['locale/uk_UA/LC_MESSAGES/pacman_mirrors.mo']),
                 ('share/locale/zh_TW/LC_MESSAGES', ['locale/zh_TW/LC_MESSAGES/pacman_mirrors.mo']),
                 ],
-    scripts=["scripts/pacman-mirrors"],
+    scripts=["scripts/blackman-mirrors"],
     install_requires=requirements,
     license="GPL3",
     zip_safe=False,
-    keywords='pacman-mirrors',
+    keywords='blackman-mirrors',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: End User/Desktop',

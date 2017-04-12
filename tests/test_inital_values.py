@@ -1,16 +1,16 @@
-#!/usr/bin/env python
-
+#!/usr/bin/env python3
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 """
-test_pacman-mirrors
+test_blackman-mirrors
 ----------------------------------
 
-Tests for `pacman-mirrors` module.
+Tests for `blackman-mirrors` module.
 """
 
 import unittest
 from unittest.mock import patch
 
-from pacman_mirrors.pacman_mirrors import PacmanMirrors
+from blackman_mirrors.blackman_mirrors import PacmanMirrors
 
 
 class TestInitialValues(unittest.TestCase):
@@ -24,7 +24,7 @@ class TestInitialValues(unittest.TestCase):
         """TEST: self.custom is False"""
         mock_os_getuid.return_value = 0
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             assert app.custom is False
@@ -34,7 +34,7 @@ class TestInitialValues(unittest.TestCase):
         """TEST: self.fasttrack is False"""
         mock_os_getuid.return_value = 0
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             assert app.fasttrack is None
@@ -44,7 +44,7 @@ class TestInitialValues(unittest.TestCase):
         """TEST: self.geoip is False"""
         mock_os_getuid.return_value = 0
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             assert app.geoip is False
@@ -54,7 +54,7 @@ class TestInitialValues(unittest.TestCase):
         """TEST: self.interactive is False"""
         mock_os_getuid.return_value = 0
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             assert app.interactive is False
@@ -64,7 +64,7 @@ class TestInitialValues(unittest.TestCase):
         """TEST: self.max_wait_time = 2"""
         mock_os_getuid.return_value = 0
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             assert app.max_wait_time == 2
@@ -74,7 +74,7 @@ class TestInitialValues(unittest.TestCase):
         """TEST: self.network is True"""
         mock_os_getuid.return_value = 0
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             assert app.network is True
@@ -84,7 +84,7 @@ class TestInitialValues(unittest.TestCase):
         """TEST: self.no_display is False"""
         mock_os_getuid.return_value = 0
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             assert app.no_display is False
@@ -94,7 +94,7 @@ class TestInitialValues(unittest.TestCase):
         """TEST: self.quiet is False"""
         mock_os_getuid.return_value = 0
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             assert app.quiet is False
@@ -104,7 +104,7 @@ class TestInitialValues(unittest.TestCase):
         """TEST: self.selected_countries = []"""
         mock_os_getuid.return_value = 0
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             assert app.selected_countries == []

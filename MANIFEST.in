@@ -4,7 +4,7 @@ include CHANGELOG.md
 include LICENSE
 include README.md
 include share/mirrors.json
-include scripts/pacman-mirrors
+include scripts/blackman-mirrors
 
 recursive-include tests *
 recursive-exclude * __pycache__

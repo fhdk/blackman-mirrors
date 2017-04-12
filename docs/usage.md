@@ -1,5 +1,5 @@
 # Usage
 
-To use pacman-mirrors in a Python project:
+To use blackman-mirrors in a Python project:
 
-    import pacman_mirrors
+    import blackman_mirrors

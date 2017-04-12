@@ -1,5 +1,5 @@
-site_name: pacman-mirrors
-repo_url: https://github.com/manjaro/pacman-mirrors
+site_name: blackman-mirrors
+repo_url: https://github.com/fhdk/blackman-mirrors
 pages:
     - Home: index.md
     - Installation: installation.md

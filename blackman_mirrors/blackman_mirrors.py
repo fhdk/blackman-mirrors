@@ -1,27 +1,28 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
-# This file is part of pacman-mirrors.
+# This file is part of blackman-mirrors.
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 #
-# pacman-mirrors is free software: you can redistribute it and/or modify
+# blackman-mirrors is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# pacman-mirrors is distributed in the hope that it will be useful,
+# blackman-mirrors is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with pacman-mirrors.  If not, see <http://www.gnu.org/licenses/>.
+# along with blackman-mirrors.  If not, see <http://www.gnu.org/licenses/>.
 #
 # Authors: Esclapion <esclapion@manjaro.org>
 #          philm <philm@manjaro.org>
 #          Ramon Buldó <rbuldo@gmail.com>
 #          Hugo Posnic <huluti@manjaro.org>
-#          Frede Hundewadt <frede@hundewadt.dk>
+#          Frede Hundewadt <f@hundewadt.dk>
 
-"""Pacman-Mirrors Main Module"""
+"""blackman-mirrors Main Module"""
 
 import argparse
 import importlib.util
@@ -30,13 +31,13 @@ import os
 from operator import itemgetter
 from random import shuffle
 
-from pacman_mirrors import __version__
+from blackman_mirrors import __version__
 from .custom_help_formatter import CustomHelpFormatter
 from .mirror import Mirror
 from . import mirrorfn
 from . import configuration as conf
 from . import configfn
-from . import customfn
+from . import bafn
 from . import filefn
 from . import httpfn
 from . import i18n
@@ -219,7 +220,7 @@ class PacmanMirrors:
     def api_config(self, prefix=None, set_branch=False, get_branch=False):
         """Api functions
         :param prefix: prefix to the config paths
-        :param set_branch: writes branch to pacman-mirrors
+        :param set_branch: writes branch to blackman-mirrors
         :param get_branch: exit with -1 -2 -3
         """
         if prefix:

@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # This file is part of pacman-mirrors.
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 #
 # pacman-mirrors is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,9 +16,9 @@
 # You should have received a copy of the GNU General Public License
 # along with pacman-mirrors.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Authors: Frede Hundewadt <frede@hundewadt.dk>
+# Authors: Frede Hundewadt <f@hundewadt.dk>
 
-"""Pacman-Mirrors Console Functions"""
+"""blackman-mirrors Console Functions"""
 
 import json
 

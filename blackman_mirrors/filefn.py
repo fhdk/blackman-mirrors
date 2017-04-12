@@ -1,21 +1,22 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
-# This file is part of pacman-mirrors.
+# This file is part of blackman-mirrors.
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 #
-# pacman-mirrors is free software: you can redistribute it and/or modify
+# blackman-mirrors is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# pacman-mirrors is distributed in the hope that it will be useful,
+# blackman-mirrors is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with pacman-mirrors.  If not, see <http://www.gnu.org/licenses/>.
+# along with blackman-mirrors.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Authors: Frede Hundewadt <frede@hundewadt.dk>
+# Authors: Frede Hundewadt <f@hundewadt.dk>
 
 """Manjaro-Mirrors File Functions"""
 
@@ -72,6 +73,7 @@ def output_mirror_list(config, servers, custom=False, quiet=False, interactive=F
     :param servers: list of servers to write
     :param custom:
     :param quiet:
+    :param interactive:
     """
     try:
         with open(config["mirror_list"], "w") as outfile:
@@ -133,17 +135,17 @@ def write_mirrorlist_header(handle, custom=False):
     """
     handle.write("##\n")
     if custom:
-        handle.write("## Manjaro Linux Custom mirrorlist\n")
+        handle.write("## Blackarch Linux Custom mirrorlist\n")
         handle.write("## Generated on {}\n".format(
             datetime.datetime.now().strftime("%d %B %Y %H:%M")))
         handle.write("##\n")
-        handle.write("## Use 'pacman-mirrors -c all' to reset\n")
+        handle.write("## Use 'blackman-mirrors -c all' to reset\n")
     else:
-        handle.write("## Manjaro Linux mirrorlist\n")
+        handle.write("## Blackarch Linux mirrorlist\n")
         handle.write("## Generated on {}\n".format(
             datetime.datetime.now().strftime("%d %B %Y %H:%M")))
         handle.write("##\n")
-        handle.write("## Use pacman-mirrors to modify\n")
+        handle.write("## Use blackman-mirrors to modify\n")
     handle.write("##\n\n")
 
 

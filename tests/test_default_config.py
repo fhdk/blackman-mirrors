@@ -1,17 +1,17 @@
-#!/usr/bin/env python
-
+#!/usr/bin/env python3
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 """
-test_pacman-mirrors
+test_blackman-mirrors
 ----------------------------------
 
-Tests for `pacman-mirrors` module.
+Tests for `blackman-mirrors` module.
 """
 
 import unittest
 from unittest.mock import patch
 
-from pacman_mirrors.pacman_mirrors import PacmanMirrors
-from pacman_mirrors import configfn
+from blackman_mirrors.blackman_mirrors import PacmanMirrors
+from blackman_mirrors import configfn
 from . import mock_configuration as conf
 
 
@@ -45,7 +45,7 @@ class TestDefaultConfig(unittest.TestCase):
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             app.config["config_file"] = conf.CONFIG_FILE
@@ -76,7 +76,7 @@ class TestDefaultConfig(unittest.TestCase):
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             app.config["config_file"] = conf.CONFIG_FILE
@@ -107,7 +107,7 @@ class TestDefaultConfig(unittest.TestCase):
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             app.config = configfn.build_config()
@@ -137,7 +137,7 @@ class TestDefaultConfig(unittest.TestCase):
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             app.config = configfn.build_config()
@@ -167,7 +167,7 @@ class TestDefaultConfig(unittest.TestCase):
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             app.config = configfn.build_config()
@@ -197,7 +197,7 @@ class TestDefaultConfig(unittest.TestCase):
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             app.config = configfn.build_config()
@@ -227,7 +227,7 @@ class TestDefaultConfig(unittest.TestCase):
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-g"]):
             app = PacmanMirrors()
             app.config["config_file"] = conf.CONFIG_FILE

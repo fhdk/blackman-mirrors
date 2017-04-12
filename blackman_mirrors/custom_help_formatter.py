@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # This file is part of pacman-mirrors.
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 #
 # pacman-mirrors is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

@@ -1,19 +1,19 @@
-#!/usr/bin/env python
-
+#!/usr/bin/env python3
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 """
-test_pacman-mirrors
+test_blackman-mirrors
 ----------------------------------
 
-Tests for `pacman-mirrors` module.
+Tests for `blackman-mirrors` module.
 """
 import os
 import unittest
 from unittest.mock import patch
 
-from pacman_mirrors import configfn
-from pacman_mirrors import filefn
-from pacman_mirrors import httpfn
-from pacman_mirrors.pacman_mirrors import PacmanMirrors
+from blackman_mirrors import configfn
+from blackman_mirrors import filefn
+from blackman_mirrors import httpfn
+from blackman_mirrors.blackman_mirrors import PacmanMirrors
 from . import mock_configuration as conf
 
 
@@ -26,7 +26,7 @@ class TestPacmanMirrors(unittest.TestCase):
     @patch("os.getuid")
     @patch.object(configfn, "build_config")
     def test_full_run_random(self, mock_build_config, mock_os_getuid):
-        """TEST: pacman-mirrors -c all -m random"""
+        """TEST: blackman-mirrors -c all -m random"""
         mock_os_getuid.return_value = 0
         mock_build_config.return_value = {
             "branch": "stable",
@@ -47,7 +47,7 @@ class TestPacmanMirrors(unittest.TestCase):
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-c", "all",
                                   "-m", "random"]):
             app = PacmanMirrors()
@@ -72,7 +72,7 @@ class TestPacmanMirrors(unittest.TestCase):
     @patch("os.getuid")
     @patch.object(configfn, "build_config")
     def test_full_run_fasttrack(self, mock_build_config, mock_os_getuid):
-        """TEST: pacman-mirrors -f 5"""
+        """TEST: blackman-mirrors -f 5"""
         mock_os_getuid.return_value = 0
         mock_build_config.return_value = {
             "branch": "stable",
@@ -93,7 +93,7 @@ class TestPacmanMirrors(unittest.TestCase):
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-f", "5"]):
             app = PacmanMirrors()
             app.config = configfn.build_config()
@@ -118,7 +118,7 @@ class TestPacmanMirrors(unittest.TestCase):
     @patch("os.getuid")
     @patch.object(configfn, "build_config")
     def test_full_run_rank(self, mock_build_config, mock_os_getuid):
-        """TEST: pacman-mirrors -c all -m random"""
+        """TEST: blackman-mirrors -c all -m random"""
         mock_os_getuid.return_value = 0
         mock_build_config.return_value = {
             "branch": "stable",
@@ -139,7 +139,7 @@ class TestPacmanMirrors(unittest.TestCase):
             "url_status_json": conf.URL_STATUS_JSON
         }
         with unittest.mock.patch("sys.argv",
-                                 ["pacman-mirrors",
+                                 ["blackman-mirrors",
                                   "-c", "all"]):
             app = PacmanMirrors()
             app.config = configfn.build_config()

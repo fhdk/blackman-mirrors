@@ -2,9 +2,9 @@
 
 At the command line:
 
-    $ easy_install pacman-mirrors
+    $ easy_install blackman-mirrors
 
 Or, if you have virtualenvwrapper installed::
 
-    $ mkvirtualenv pacman-mirrors
-    $ pip install pacman-mirrors
+    $ mkvirtualenv blackman-mirrors
+    $ pip install blackman-mirrors

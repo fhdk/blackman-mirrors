@@ -2,17 +2,17 @@
 # Copyright (C) 2017 ORGANIZATION
 # This file is distributed under the same license as the pacman-mirrors
 # project.
-# 
+#
 # Translators:
 # zubr139, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: manjaro-pacman-mirrors\n"
+"Project-Id-Version: manjaro-blackman-mirrors\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-20 15:44+0100\n"
 "PO-Revision-Date: 2017-02-27 07:41+0000\n"
 "Last-Translator: philm <philm@manjaro.org>\n"
-"Language-Team: Ukrainian (Ukraine) (http://www.transifex.com/manjarolinux/manjaro-pacman-mirrors/language/uk_UA/)\n"
+"Language-Team: Ukrainian (Ukraine) (http://www.transifex.com/manjarolinux/manjaro-blackman-mirrors/language/uk_UA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -109,7 +109,7 @@ msgid "Maximum waiting time for server response"
 msgstr ""
 
 #: pacman_mirrors/txt.py:57
-msgid "Print the pacman-mirrors version"
+msgid "Print the blackman-mirrors version"
 msgstr ""
 
 #: pacman_mirrors/txt.py:58
@@ -201,7 +201,7 @@ msgid "Randomizing mirror list"
 msgstr ""
 
 #: pacman_mirrors/txt.py:81
-msgid "To reset custom config run `pacman-mirrors -c all`"
+msgid "To reset custom config run `blackman-mirrors -c all`"
 msgstr ""
 
 #: pacman_mirrors/txt.py:82

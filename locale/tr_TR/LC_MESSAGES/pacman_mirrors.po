@@ -2,18 +2,18 @@
 # Copyright (C) 2017 ORGANIZATION
 # This file is distributed under the same license as the pacman-mirrors
 # project.
-# 
+#
 # Translators:
 # Demiray Muhterem <mdemiray@msn.com>, 2017
 # ilkeryus <ilkeryus@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: manjaro-pacman-mirrors\n"
+"Project-Id-Version: manjaro-blackman-mirrors\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-20 15:44+0100\n"
 "PO-Revision-Date: 2017-03-09 18:09+0000\n"
 "Last-Translator: Demiray Muhterem <mdemiray@msn.com>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/manjarolinux/manjaro-pacman-mirrors/language/tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/manjarolinux/manjaro-blackman-mirrors/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -110,8 +110,8 @@ msgid "Maximum waiting time for server response"
 msgstr "Sunucu yanıtı için azami bekleme süresi"
 
 #: pacman_mirrors/txt.py:57
-msgid "Print the pacman-mirrors version"
-msgstr "pacman-mirrors sürümünü yazdır"
+msgid "Print the blackman-mirrors version"
+msgstr "blackman-mirrors sürümünü yazdır"
 
 #: pacman_mirrors/txt.py:58
 msgid "A quick mirrorlist. Overrides -cim --geoip"
@@ -202,8 +202,8 @@ msgid "Randomizing mirror list"
 msgstr "Rastgele yansı listesi seç"
 
 #: pacman_mirrors/txt.py:81
-msgid "To reset custom config run `pacman-mirrors -c all`"
-msgstr "Özel yansıları sıfırlamak için `pacman-mirrors -c all` kullanın"
+msgid "To reset custom config run `blackman-mirrors -c all`"
+msgstr "Özel yansıları sıfırlamak için `blackman-mirrors -c all` kullanın"
 
 #: pacman_mirrors/txt.py:82
 msgid "This may take some time"

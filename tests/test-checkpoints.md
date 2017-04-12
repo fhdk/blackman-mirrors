@@ -1,4 +1,4 @@
-## Pacman-Mirrors testpoints
+## blackman-mirrors testpoints
 ### Geoip
 
 * `--geoip -b stable -o geoip-stable-mirrorlist.txt`

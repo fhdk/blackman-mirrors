@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # This file is part of pacman-mirrors.
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 #
 # pacman-mirrors is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,9 +16,9 @@
 # You should have received a copy of the GNU General Public License
 # along with pacman-mirrors.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Authors: Frede Hundewadt <frede@hundewadt.dk>
+# Authors: Frede Hundewadt <f@hundewadt.dk>
 
-"""Pacman-Mirrors TUI Module"""
+"""blackman-mirrors ConsoleUI Module"""
 
 from collections import namedtuple
 
@@ -43,7 +44,7 @@ class ConsoleUI(npyscreen.NPSAppManaged):
         self.default = default
         self.title = txt.I_TITLE_RANDOM if random else txt.I_TITLE
         if default:
-            self.title = "Pacman-Mirrors"
+            self.title = "blackman-mirrors"
 
     def main(self):
         """Main"""

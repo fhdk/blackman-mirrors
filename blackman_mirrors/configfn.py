@@ -1,23 +1,24 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
-# This file is part of pacman-mirrors.
+# This file is part of blackman-mirrors.
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 #
-# pacman-mirrors is free software: you can redistribute it and/or modify
+# blackman-mirrors is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# pacman-mirrors is distributed in the hope that it will be useful,
+# blackman-mirrors is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with pacman-mirrors.  If not, see <http://www.gnu.org/licenses/>.
+# along with blackman-mirrors.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Authors: Frede Hundewadt <frede@hundewadt.dk>
+# Authors: Frede Hundewadt <f@hundewadt.dk>
 
-"""Pacman-Mirrors Configuration Functions"""
+"""blackman-mirrors Configuration Functions"""
 
 import os
 import sys
@@ -63,8 +64,6 @@ def build_config():
     custom = False
     # default config
     config = {
-        "branch": "stable",
-        "branches": conf.BRANCHES,
         "config_file": conf.CONFIG_FILE,
         "custom_file": conf.CUSTOM_FILE,
         "fallback_file": conf.FALLBACK,
@@ -77,7 +76,7 @@ def build_config():
         "repo_arch": conf.REPO_ARCH,
         "ssl": False,
         "status_file": conf.STATUS_FILE,
-        "url_mirrors_json": conf.URL_MIRROR_JSON,
+        "url_mirrors_json": conf.URL_MIRROR_LIST,
         "url_status_json": conf.URL_STATUS_JSON
     }
     # try to replace default entries by reading conf file
@@ -95,8 +94,6 @@ def build_config():
                         value = value[1:-1]
                     if key == "Method":
                         config["method"] = value
-                    elif key == "Branch":
-                        config["branch"] = value
                     elif key == "OnlyCountry":
                         custom = True
                         config["only_country"] = value.split(",")

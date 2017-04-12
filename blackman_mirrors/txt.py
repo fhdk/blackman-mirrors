@@ -1,23 +1,24 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
-# This file is part of pacman-mirrors.
+# This file is part of blackman-mirrors.
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 #
-# pacman-mirrors is free software: you can redistribute it and/or modify
+# blackman-mirrors is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# pacman-mirrors is distributed in the hope that it will be useful,
+# blackman-mirrors is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with pacman-mirrors.  If not, see <http://www.gnu.org/licenses/>.
+# along with blackman-mirrors.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Authors: Frede Hundewadt <frede@hundewadt.dk>
+# Authors: Frede Hundewadt <f@hundewadt.dk>
 
-"""Pacman-Mirrors Text Module"""
+"""blackman-mirrors Text Module"""
 
 from . import i18n
 
@@ -55,7 +56,7 @@ HLP_ARG_NOUPDATE_P2 = _("in the configuration file")
 HLP_ARG_PATH = _("Mirrors list path")
 HLP_ARG_QUIET = _("Quiet mode - less verbose output")
 HLP_ARG_TIMEOUT = _("Maximum waiting time for server response")
-HLP_ARG_VERSION = _("Print the pacman-mirrors version")
+HLP_ARG_VERSION = _("Print the blackman-mirrors version")
 HLP_ARG_FASTTRACK = _("A quick mirrorlist. Overrides")
 HLP_ARG_LIST = _("List all available countries")
 # messages
@@ -109,7 +110,7 @@ I_USE_THESE_MIRRORS = _("I want to use these mirrors")
 HOUSTON = "Houston?! We have a problem."
 OVERRIDE_OPT = "-c -i -m --geoip"
 REPO_SERVER = "repo.manjaro.org"
-RESET_TIP = "pacman-mirrors -c all"
+RESET_TIP = "blackman-mirrors -c all"
 # mirror status constants
 LASTSYNC_OK = "24:00"  # last syncronize in the past 24 hours
 LASTSYNC_NA = "9800:00"  # last syncronization not available

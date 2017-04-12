@@ -1,10 +1,11 @@
+# blackman-mirrors is a fork of Manjaro pacman-mirrors
 # http constants
 URL_MIRROR_JSON = "http://repo.manjaro.org/mirrors.json"
 URL_STATUS_JSON = "http://repo.manjaro.org/status.json"
 # etc
-CONFIG_FILE = "tests/mock/etc/pacman-mirrors.conf"
+CONFIG_FILE = "tests/mock/etc/blackman-mirrors.conf"
 MIRROR_LIST = "tests/mock/etc/mirrorlist"
-# pacman-mirrors
+# blackman-mirrors
 MIRROR_DIR = "tests/mock/var/"
 CUSTOM_FILE = "tests/mock/var/custom-mirrors.json"
 MIRROR_FILE = "tests/mock/var/mirrors.json"

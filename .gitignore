@@ -43,5 +43,5 @@ output/*/index.html
 
 # Sphinx
 docs/_build
-pacman_mirrors/__pycache__/
+blackman_mirrors/__pycache__/
 tests/__pycache__/

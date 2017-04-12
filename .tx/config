@@ -1,8 +1,8 @@
 [main]
 host = https://www.transifex.com
 
-[manjaro-pacman-mirrors.pacman_mirrors]
-source_file = locale/pacman_mirrors.pot
+[blackarch-blackman-mirrors.blackman_mirrors]
+source_file = locale/blackman_mirrors.pot
 source_lang = en
 type = PO
-file_filter = locale/<lang>/LC_MESSAGES/pacman_mirrors.po
+file_filter = locale/<lang>/LC_MESSAGES/blackman_mirrors.po

@@ -1,6 +1,6 @@
-#  Documentation of pacman-mirrors
+#  Documentation of blackman-mirrors
 
-Enhanced pacman-mirrors for Manjaro Linux
+Enhanced blackman-mirrors for Blackarch Linux
 
 ## Commands
 
@@ -14,21 +14,14 @@ Generate a new mirrorlist.
 Choose the generation method:
 
 - rank
-- random.
-
-`-b [branch]`, `--branch [branch]`
-Choose the branch to use:
-
-- stable
-- testing
-- unstable
+- random
 
 `-c [country]`, `--country [country]`
 Choose the country to use:
 
 - all
-- France
-- France, German, Spain
+- FR
+- FR,DE,AT
 
 `--geoip`
 Detect country by using geolocation.
@@ -40,7 +33,7 @@ Change directory of mirrors to use.
 Generates an updated and responsive mirrorlist of [n] mirrors.
 
 `-l`, `--list`
-Lists available mirror countries
+Lists available mirror countries.
 
 `-o`, `--output`
 Change path of the output file.
@@ -60,22 +53,20 @@ loading the default mirrorfile and executes the ranking/randomizing process
 after the selection of mirrors.
 
 `-v`, `--version`
-Show the version of pacman-mirrors.
+Show the version of blackman-mirrors.
 
 `--quiet`
-Make pacman-mirrors silent.
+Make blackman-mirrors silent.
 
 `-a`, `--api` [--prefix] [{--get-branch | --set-branch}]
 
-- `--prefix` for pacman-mirrors file-handling eg. /mnt/install or $mnt
-- `--get-branch` returns branch from config in prefix`config_file`. If used with `--branch` and you get the arguments value.
+- `--prefix` for blackman-mirrors file-handling eg. /mnt/install or $mnt
+- `--get-branch` returns branch from config in prefix`config_file`.   
+   Don't use with `--branch` it defeats the purpose og `--getbranch`.
 - `--set-branch` writes branch from `--branch` to prefix`config_file`
 
-## pacman-mirrors.conf
+## blackman-mirrors.conf
 ```
-## Branch Pacman should use (stable, testing, unstable)
-# Branch = stable
-
 ## Generation method
 ## 1) rank   - rank mirrors depending on their access time
 ## 2) random - randomly generate the output mirrorlist
@@ -87,15 +78,15 @@ Make pacman-mirrors silent.
 # OnlyCountry =
 
 ## Mirrors directory
-# MirrorlistsDir = /var/lib/pacman-mirrors
+# MirrorlistsDir = /var/lib/blackman-mirrors
 
 ## Output file
-# OutputMirrorlist = /etc/pacman.d/mirrorlist
+# OutputMirrorlist = /etc/pacman.d/blackman-mirrorlist
 
 ## When set to True prevents the regeneration of the mirrorlist if
-## pacman-mirrors is invoked with the --no-update argument.
+## blackman-mirrors is invoked with the --no-update argument.
 ## Useful if you don't want the mirrorlist regenerated after a
-## pacman-mirrors package upgrade.
+## blackman-mirrors package upgrade.
 # NoUpdate = False
 
 # SSL = False

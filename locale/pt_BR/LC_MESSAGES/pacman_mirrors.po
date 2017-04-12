@@ -2,18 +2,18 @@
 # Copyright (C) 2017 ORGANIZATION
 # This file is distributed under the same license as the pacman-mirrors
 # project.
-# 
+#
 # Translators:
 # Gabriel Henrique <gabrielmmoderno@gmail.com>, 2017
 # Matheus Campagnol <mate175@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: manjaro-pacman-mirrors\n"
+"Project-Id-Version: manjaro-blackman-mirrors\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-20 15:44+0100\n"
 "PO-Revision-Date: 2017-03-02 13:46+0000\n"
 "Last-Translator: Matheus Campagnol <mate175@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/manjarolinux/manjaro-pacman-mirrors/language/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/manjarolinux/manjaro-blackman-mirrors/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -110,8 +110,8 @@ msgid "Maximum waiting time for server response"
 msgstr "Tempo máximo de espera para a resposta do servidor"
 
 #: pacman_mirrors/txt.py:57
-msgid "Print the pacman-mirrors version"
-msgstr "Imprima a versão do pacman-mirrors"
+msgid "Print the blackman-mirrors version"
+msgstr "Imprima a versão do blackman-mirrors"
 
 #: pacman_mirrors/txt.py:58
 msgid "A quick mirrorlist. Overrides -cim --geoip"
@@ -202,8 +202,8 @@ msgid "Randomizing mirror list"
 msgstr "Aleatorizando a lista de espelhos"
 
 #: pacman_mirrors/txt.py:81
-msgid "To reset custom config run `pacman-mirrors -c all`"
-msgstr "Para redefinir uma configuração personalizada use  `pacman-mirrors -c all`"
+msgid "To reset custom config run `blackman-mirrors -c all`"
+msgstr "Para redefinir uma configuração personalizada use  `blackman-mirrors -c all`"
 
 #: pacman_mirrors/txt.py:82
 msgid "This may take some time"

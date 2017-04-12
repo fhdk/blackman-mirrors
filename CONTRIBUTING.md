@@ -1,5 +1,5 @@
 # Contributing
-
+**blackman-mirrors is a fork of Manjaro pacman-mirrors**  
 Contributions are welcome, and they are greatly appreciated! Every
 little bit helps, and credit will always be given.
 
@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/manjaro/pacman-mirrors/issues.
+Report bugs at https://github.com/fhdk/blackman-mirrors/issues.
 
 If you are reporting a bug, please include:
 - Your operating system name and version.
@@ -28,17 +28,17 @@ is open to whoever wants to implement it.
 
 ### Write Documentation
 
-pacman-mirrors could always use more documentation, whether as part of the
-official pacman-mirrors docs, in docstrings, or even on the web in blog posts,
+blackman-mirrors could always use more documentation, whether as part of the
+official blackman-mirrors docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 ### Translations
 
-Help us to ship pacman-mirrors in your language by helping our translators on [Transifex](https://www.transifex.com/manjarolinux/manjaro-pacman-mirrors/dashboard/).
+Help us to ship blackman-mirrors in your language by helping our translators on [Transifex](https://www.transifex.com/blackarchlinux/blackarch-blackman-mirrors/dashboard/).
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/manjaro/pacman-mirrors/issues.
+The best way to send feedback is to file an issue at https://github.com/fhdk/blackman-mirrors/issues.
 
 If you are proposing a feature:
 - Explain in detail how it would work.
@@ -48,16 +48,16 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `pacman-mirrors` for local development.
+Ready to contribute? Here's how to set up `blackman-mirrors` for local development.
 
-1. Fork the `pacman-mirrors` repo on GitHub.
+1. Fork the `blackman-mirrors` repo on GitHub.
 2. Clone your fork locally:
 
-    $ `git clone git@github.com:your_name_here/pacman-mirrors.git`
+    $ `git clone git@github.com:your_name_here/blackman-mirrors.git`
 
 3. Install your local copy into a virtualenv. Assuming you have [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) installed, this is how you set up your fork for local development:
-    - $ `mkvirtualenv pacman-mirrors`
-    - $ `cd pacman-mirrors/`
+    - $ `mkvirtualenv blackman-mirrors`
+    - $ `cd blackman-mirrors/`
     - $ `python setup.py develop`
 
 4. Create a branch for local development:
@@ -67,7 +67,7 @@ Ready to contribute? Here's how to set up `pacman-mirrors` for local development
    Now you can make your changes locally.
 
 5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox:
-    - $ `flake8 pacman-mirrors tests`
+    - $ `flake8 blackman-mirrors tests`
     - $ `python setup.py test`
     - $ `tox`
 
@@ -88,12 +88,12 @@ Before you submit a pull request, check that it meets these guidelines:
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
    feature to the list in README.md.
-3. The pull request should work for Python 3.4+, and for PyPy. Check
-   https://travis-ci.org/manjaro/pacman-mirrors/pull_requests
+3. The pull request should work for Python 3.6+, and for PyPy. Check
+   https://travis-ci.org/manjaro/blackman-mirrors/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
 ## Tips
 
 To run a subset of tests:
 
-    $ `python -m unittest tests.test_pacman_mirrors`
+    $ `python -m unittest tests.test_blackman_mirrors`

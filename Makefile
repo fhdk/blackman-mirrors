@@ -48,7 +48,7 @@ test-all:
 	tox
 
 coverage:
-	coverage run --source pacman_mirrors setup.py test
+	coverage run --source blackman_mirrors setup.py test
 	coverage report -m
 	coverage html
 	firefox htmlcov/index.html
@@ -69,7 +69,7 @@ install: clean mo-files
 	python setup.py install --root=$(DESTDIR) --optimize=1
 
 pot-file:
-	python setup.py extract_messages --output-file locale/pacman_mirrors.pot
+	python setup.py extract_messages --output-file locale/blackman_mirrors.pot
 
 push-pot:
 	tx push -s
@@ -78,4 +78,4 @@ pull-po:
 	tx pull -a
 
 mo-files:
-	python setup.py compile_catalog --directory locale --domain pacman_mirrors
+	python setup.py compile_catalog --directory locale --domain blackman_mirrors
