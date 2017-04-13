@@ -14,5 +14,4 @@ STATUS_FILE = "tests/mock/var/status.json"
 O_CUST_FILE = "tests/mock/var/Custom"
 FALLBACK = "tests/mock/usr/mirrors.json"
 # repo constants
-BRANCHES = ("stable", "testing", "unstable")
-REPO_ARCH = "/$repo/$arch"
+REPO_ARCH = "/$repo/os/$arch"

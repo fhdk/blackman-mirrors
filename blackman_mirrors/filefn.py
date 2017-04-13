@@ -92,14 +92,12 @@ def output_mirror_list(config, servers, custom=False, quiet=False, interactive=F
                 else:
                     url = server["url"]
                     for protocol in enumerate(server["protocols"]):
-                        msg_url = server["url"] = "{}{}{}".format(protocol[1],
-                                                                  "://",
-                                                                  url)
+                        msg_url = server["url"] = "{}{}".format(protocol[1],
+                                                                url)
 
-                        server["url"] = "{}{}{}{}".format(protocol[1],
-                                                          "://",
-                                                          url,
-                                                          config["repo_arch"])
+                        server["url"] = "{}{}{}".format(protocol[1],
+                                                        url,
+                                                        config["repo_arch"])
                         # write list entry
                         write_mirrorlist_entry(outfile, server)
                         if not quiet:

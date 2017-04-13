@@ -19,27 +19,34 @@
 # Authors: Frede Hundewadt <f@hundewadt.dk>
 
 """blackman-mirrors Mirrorlist Functions"""
-
 from . import miscfn
 
 
-def format_mirror(data):
+def format_mirror(mirrorlist):
     """Format mirror from blackarch text file
-    :param data: sample 'FR|https://blackarch.org/blackarch/$repo/os/$arch|blackarch'
+    :param mirrorlist: sample FR|https://blackarch.org/blackarch/$repo/os/$arch|blackarch
     :return: server info in dictionary
     :rtype: dict
     """
-    lines = data.split()
     mirrors = []
-    for line in lines:
-        server = line.split("|")
+    if not mirrorlist:
+        return mirrors
+    mirrordata = mirrorlist.split("|")
+    for data in mirrordata:
+        miscfn.blue("format_mirror", "data", mirrordata)
+        exit()
+        line = data.split("|")
+        country = line[0]
+        url = line[1]
+        name = line[2]
         mirror = {
-            "country": "{}".format(server[0]),
-            "name": "{}".format(server[2]),
-            "url": "{}".format(get_url(server[1])),
-            "protocols": ["{}".format(get_protocol(server[1]))]
+            "country": country,
+            "name": name,
+            "url": get_url(url),
+            "protocols": [get_protocol(url)]
         }
         mirrors.append(mirror)
+
     return filter_doubles(mirrors)
 
 
@@ -47,8 +54,8 @@ def filter_doubles(mirrorlist):
     """Remove doubles - instead add protocol to protocols
     :param mirrorlist: the list to be checked
     :return: new list
-    sample data FR|http://blackarch.tamcore.eu/$repo/os/$arch|tamcore.eu
-                FR|https://blackarch.tamcore.eu/$repo/os/$arch|tamcore.eu
+    sample FR|http://blackarch.tamcore.eu/$repo/os/$arch|tamcore.eu
+           FR|https://blackarch.tamcore.eu/$repo/os/$arch|tamcore.eu
     """
     mirrors = []
     for mirror in mirrorlist:
@@ -65,32 +72,21 @@ def filter_doubles(mirrorlist):
     return mirrors
 
 
-def get_server(url):
-    """return servername from url"""
-    pos = url.find(":")
-    result = url[pos + 3:]
-    pos = result.find("/")
-    return result[:pos]
-
-
-def get_protocol(data):
+def get_protocol(url):
     """Extract protocol from url"""
-    pos = data.find(":")
-    return data[:pos]
+    pos = url.find("://")
+    return url[:pos]
 
 
-def get_country(data):
-    """Extract mirror country from data"""
-    line = data.strip()
-    if line.startswith("[") and line.endswith("]"):
-        return line[1:-1]
-    elif line.startswith("## Country") or line.startswith("## Location"):
-        return line[19:]
+def get_server(url):
+    """Extract server from url"""
+    pos = url.find("://")
+    return url[pos + 3:]
 
 
 def get_url(url):
     """Extract mirror url from data"""
     line = url.strip()
-    pos = line.find(":")
-    result = line[pos + 3:]
-    return "{}".format(result.replace("$repo/os/$arch", ""))
+    pos = line.find("://")
+    result = line[pos:]
+    return "{}".format(result.replace("/$repo/os/$arch", ""))

@@ -33,7 +33,7 @@
 # # special cases
 # FALLBACK = "/usr/share/blackman-mirrors/mirrors.json"
 # # repo constants
-# REPO_ARCH = "$repo/os/$arch"
+# REPO_ARCH = "/$repo/os/$arch"
 
 # blackman-mirrors is a fork of Manjaro pacman-mirrors
 # http constants
@@ -50,4 +50,4 @@ STATUS_FILE = "tests/mock/var/status.json"
 # special cases
 FALLBACK = "tests/mock/usr/mirrors.json"
 # repo constants
-REPO_ARCH = "$repo/os/$arch"
+REPO_ARCH = "/$repo/os/$arch"
