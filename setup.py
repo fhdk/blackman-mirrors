@@ -16,16 +16,16 @@ from blackman_mirrors import bafn
 
 
 def update_mirror_file():
-    """update mirrors.json from github"""
+    """update mirrors from github"""
     mirrorlist = list()
     try:
-        with urlopen("https://github.com/manjaro/manjaro-web-repo/raw/master/mirrors.json") as response:
+        with urlopen("https://raw.githubusercontent.com/BlackArch/blackarch/master/mirror/mirror.lst") as response:
             mirrorlist = response.read().decode("utf8")
             mirrorlist = bafn.format_mirror(mirrorlist)
     except (HTTPException, json.JSONDecodeError, URLError, timeout):
         pass
     if mirrorlist:
-        with open("share/mirrors.json", "w") as outfile:
+        with open("share/blackman-mirrors.json", "w") as outfile:
             json.dump(mirrorlist, outfile)
 
 
@@ -75,7 +75,7 @@ setup(
     package_dir={'blackman_mirrors': 'blackman_mirrors'},
     data_files=[('/etc', ['conf/blackman-mirrors.conf']),
                 ('/etc/pacman.d', []),
-                ('share/blackman-mirrors', ['share/mirrors.json']),
+                ('share/blackman-mirrors', ['share/blackman-mirrors.json']),
                 ('share/locale/bg/LC_MESSAGES', ['locale/bg/LC_MESSAGES/pacman_mirrors.mo']),
                 ('share/locale/ca/LC_MESSAGES', ['locale/ca/LC_MESSAGES/pacman_mirrors.mo']),
                 ('share/locale/cs/LC_MESSAGES', ['locale/cs/LC_MESSAGES/pacman_mirrors.mo']),

@@ -28,13 +28,13 @@ def format_mirror(mirrorlist):
     :return: server info in dictionary
     :rtype: dict
     """
+    miscfn.yellow("format_mirror", "mirrorlist", mirrorlist)
+    exit()
     mirrors = []
     if not mirrorlist:
         return mirrors
     mirrordata = mirrorlist.split("|")
     for data in mirrordata:
-        miscfn.blue("format_mirror", "data", mirrordata)
-        exit()
         line = data.split("|")
         country = line[0]
         url = line[1]

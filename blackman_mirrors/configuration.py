@@ -28,10 +28,10 @@
 # # blackman-mirrors
 # MIRROR_DIR = "/var/lib/blackman-mirrors/"
 # CUSTOM_FILE = "/var/lib/blackman-mirrors/custom-mirrors.json"
-# MIRROR_FILE = "/var/lib/blackman-mirrors/mirrors.json"
+# MIRROR_FILE = "/var/lib/blackman-mirrors/blackman-mirrors.json"
 # STATUS_FILE = "/var/lib/blackman-mirrors/status.json"
 # # special cases
-# FALLBACK = "/usr/share/blackman-mirrors/mirrors.json"
+# FALLBACK = "/usr/share/blackman-mirrors/blackman-mirrors.json"
 # # repo constants
 # REPO_ARCH = "/$repo/os/$arch"
 
@@ -45,9 +45,9 @@ MIRROR_LIST = "tests/mock/etc/mirrorlist"
 # blackman-mirrors
 MIRROR_DIR = "tests/mock/var/"
 CUSTOM_FILE = "tests/mock/var/custom-mirrors.json"
-MIRROR_FILE = "tests/mock/var/mirrors.json"
-STATUS_FILE = "tests/mock/var/status.json"
+MIRROR_FILE = "tests/mock/var/blackman-mirrors.json"
+STATUS_FILE = "tests/mock/var/blackman-status.json"
 # special cases
-FALLBACK = "tests/mock/usr/mirrors.json"
+FALLBACK = "tests/mock/usr/blackman-mirrors.json"
 # repo constants
 REPO_ARCH = "/$repo/os/$arch"
