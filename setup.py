@@ -17,7 +17,7 @@ from blackman_mirrors import bafn
 
 def update_mirror_file():
     """update mirrors from github"""
-    mirrorlist = list()
+    mirrorlist = None
     try:
         with urlopen("https://raw.githubusercontent.com/BlackArch/blackarch/master/mirror/mirror.lst") as response:
             mirrorlist = response.read().decode("utf8")
@@ -26,7 +26,7 @@ def update_mirror_file():
         pass
     if mirrorlist:
         with open("share/blackman-mirrors.json", "w") as outfile:
-            json.dump(mirrorlist, outfile)
+            json.dump(mirrorlist, outfile, indent=4, sort_keys=True)
 
 
 def read(*names, **kwargs):

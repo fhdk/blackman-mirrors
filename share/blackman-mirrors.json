@@ -1,0 +1,355 @@
+[
+    {
+        "country": "AT",
+        "name": "easyname",
+        "protocols": [
+            "http"
+        ],
+        "server": "mirror.easyname.at",
+        "url": "http://mirror.easyname.at/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "AU",
+        "name": "digitalpacific",
+        "protocols": [
+            "http"
+        ],
+        "server": "blackarch.mirror.digitalpacific.com.au",
+        "url": "http://blackarch.mirror.digitalpacific.com.au/$repo/os/$arch"
+    },
+    {
+        "country": "CA",
+        "name": "uqam",
+        "protocols": [
+            "http"
+        ],
+        "server": "mirror.clibre.uqam.ca",
+        "url": "http://mirror.clibre.uqam.ca/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "CH",
+        "name": "tillo",
+        "protocols": [
+            "https",
+            "ftpes",
+            "ftp"
+        ],
+        "server": "mirror.tillo.ch",
+        "url": "ftpes://mirror.tillo.ch/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "CH",
+        "name": "easyname",
+        "protocols": [
+            "http"
+        ],
+        "server": "mirror.easyname.ch",
+        "url": "http://mirror.easyname.ch/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "CN",
+        "name": "Knight",
+        "protocols": [
+            "https"
+        ],
+        "server": "mirrors.ustc.edu.cn",
+        "url": "https://mirrors.ustc.edu.cn/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "DE",
+        "name": "RWTH-Aachen",
+        "protocols": [
+            "https"
+        ],
+        "server": "ftp.halifax.rwth-aachen.de",
+        "url": "https://ftp.halifax.rwth-aachen.de/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "DK",
+        "name": "dotsrc",
+        "protocols": [
+            "https"
+        ],
+        "server": "mirrors.dotsrc.org",
+        "url": "https://mirrors.dotsrc.org/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "EC",
+        "name": "eseerror",
+        "protocols": [
+            "https"
+        ],
+        "server": "mirror.cedia.org.ec",
+        "url": "https://mirror.cedia.org.ec/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "EC",
+        "name": "eseerror",
+        "protocols": [
+            "http"
+        ],
+        "server": "mirror.espoch.edu.ec",
+        "url": "http://mirror.espoch.edu.ec/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "EC",
+        "name": "eseerror",
+        "protocols": [
+            "https"
+        ],
+        "server": "mirror.uta.edu.ec",
+        "url": "https://mirror.uta.edu.ec/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "FR",
+        "name": "blackarch",
+        "protocols": [
+            "https"
+        ],
+        "server": "blackarch.org",
+        "url": "https://blackarch.org/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "FR",
+        "name": "JayCie",
+        "protocols": [
+            "http"
+        ],
+        "server": "blackarch.leneveu.fr",
+        "url": "http://blackarch.leneveu.fr/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "FR",
+        "name": "Pi3rrot",
+        "protocols": [
+            "http"
+        ],
+        "server": "blackarch.pi3rrot.net",
+        "url": "http://blackarch.pi3rrot.net/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "FR",
+        "name": "tamcore.eu",
+        "protocols": [
+            "http"
+        ],
+        "server": "blackarch.tamcore.eu",
+        "url": "http://blackarch.tamcore.eu/$repo/os/$arch"
+    },
+    {
+        "country": "FR",
+        "name": "takeshix",
+        "protocols": [
+            "https"
+        ],
+        "server": "mirror.adversec.com",
+        "url": "https://mirror.adversec.com/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "FR",
+        "name": "tamcore.eu",
+        "protocols": [
+            "https"
+        ],
+        "server": "blackarch.tamcore.eu",
+        "url": "https://blackarch.tamcore.eu/$repo/os/$arch"
+    },
+    {
+        "country": "GB",
+        "name": "mirrorservice",
+        "protocols": [
+            "https"
+        ],
+        "server": "www.mirrorservice.org",
+        "url": "https://www.mirrorservice.org/sites/blackarch.org/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "GR",
+        "name": "cc.uoc.gr",
+        "protocols": [
+            "http"
+        ],
+        "server": "ftp.cc.uoc.gr",
+        "url": "http://ftp.cc.uoc.gr/mirrors/linux/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "IE",
+        "name": "heanet",
+        "protocols": [
+            "http"
+        ],
+        "server": "ftp.heanet.ie",
+        "url": "http://ftp.heanet.ie/mirrors/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "IT",
+        "name": "garr",
+        "protocols": [
+            "http"
+        ],
+        "server": "blackarch.mirror.garr.it",
+        "url": "http://blackarch.mirror.garr.it/mirrors/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "JP",
+        "name": "ne",
+        "protocols": [
+            "http"
+        ],
+        "server": "www.ftp.ne.jp",
+        "url": "http://www.ftp.ne.jp/Linux/packages/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "NL",
+        "name": "pr0s3c",
+        "protocols": [
+            "https"
+        ],
+        "server": "blackarch.pr0s3c.nl",
+        "url": "https://blackarch.pr0s3c.nl/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "PL",
+        "name": "ICMuniversity",
+        "protocols": [
+            "https"
+        ],
+        "server": "ftp.icm.edu.pl",
+        "url": "https://ftp.icm.edu.pl/pub/Linux/dist/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "RU",
+        "name": "yandex",
+        "protocols": [
+            "https"
+        ],
+        "server": "mirror.yandex.ru",
+        "url": "https://mirror.yandex.ru/mirrors/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "SE",
+        "name": "zetup",
+        "protocols": [
+            "http"
+        ],
+        "server": "mirror.zetup.net",
+        "url": "http://mirror.zetup.net/blackarch/$repo/os/$arch/"
+    },
+    {
+        "country": "SG",
+        "name": "NUS",
+        "protocols": [
+            "https"
+        ],
+        "server": "download.nus.edu.sg",
+        "url": "https://download.nus.edu.sg/mirror/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "TR",
+        "name": "linux.org.tr",
+        "protocols": [
+            "http"
+        ],
+        "server": "ftp.linux.org.tr",
+        "url": "http://ftp.linux.org.tr/blackarch/$repo/os/$arch/"
+    },
+    {
+        "country": "TW",
+        "name": "pichuang",
+        "protocols": [
+            "http"
+        ],
+        "server": "blackarch.cs.nctu.edu.tw",
+        "url": "http://blackarch.cs.nctu.edu.tw/$repo/os/$arch"
+    },
+    {
+        "country": "TW",
+        "name": "PeterDaveHello",
+        "protocols": [
+            "https"
+        ],
+        "server": "ftp.yzu.edu.tw",
+        "url": "https://ftp.yzu.edu.tw/Linux/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "US",
+        "name": "tuxns",
+        "protocols": [
+            "https"
+        ],
+        "server": "mirrors.tuxns.net",
+        "url": "https://mirrors.tuxns.net/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "US",
+        "name": "Princeton",
+        "protocols": [
+            "https"
+        ],
+        "server": "mirror.math.princeton.edu",
+        "url": "https://mirror.math.princeton.edu/pub/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "US",
+        "name": "Ibiblio",
+        "protocols": [
+            "http"
+        ],
+        "server": "distro.ibiblio.org",
+        "url": "http://distro.ibiblio.org/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "US",
+        "name": "jmu",
+        "protocols": [
+            "http"
+        ],
+        "server": "mirror.jmu.edu",
+        "url": "http://mirror.jmu.edu/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "US",
+        "name": "maxcdn",
+        "protocols": [
+            "http"
+        ],
+        "server": "mirror.oss.maxcdn.com",
+        "url": "http://mirror.oss.maxcdn.com/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "US",
+        "name": "TeamCymru",
+        "protocols": [
+            "http"
+        ],
+        "server": "mirror.team-cymru.org",
+        "url": "http://mirror.team-cymru.org/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "US",
+        "name": "deadbeef",
+        "protocols": [
+            "https"
+        ],
+        "server": "deadbeef.ninja",
+        "url": "https://deadbeef.ninja/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "US",
+        "name": "LPS",
+        "protocols": [
+            "https"
+        ],
+        "server": "mirror.lps.rocks",
+        "url": "https://mirror.lps.rocks/blackarch/$repo/os/$arch"
+    },
+    {
+        "country": "VN",
+        "name": "archlinuxvn",
+        "protocols": [
+            "http"
+        ],
+        "server": "f.archlinuxvn.org",
+        "url": "http://f.archlinuxvn.org/blackarch/$repo/os/$arch"
+    }
+]

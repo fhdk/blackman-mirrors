@@ -28,13 +28,14 @@ def format_mirror(mirrorlist):
     :return: server info in dictionary
     :rtype: dict
     """
-    miscfn.yellow("format_mirror", "mirrorlist", mirrorlist)
-    exit()
     mirrors = []
+    servers = []
     if not mirrorlist:
         return mirrors
-    mirrordata = mirrorlist.split("|")
+    mirrordata = mirrorlist.split("\n")
     for data in mirrordata:
+        if not data:
+            continue
         line = data.split("|")
         country = line[0]
         url = line[1]
@@ -42,33 +43,34 @@ def format_mirror(mirrorlist):
         mirror = {
             "country": country,
             "name": name,
-            "url": get_url(url),
+            "url": url,
+            "server": get_server(url),
             "protocols": [get_protocol(url)]
         }
+        if not mirror["server"] in servers:
+            servers.append(mirror["server"])
         mirrors.append(mirror)
 
-    return filter_doubles(mirrors)
+    return condensed_list(mirrors, servers)
 
 
-def filter_doubles(mirrorlist):
-    """Remove doubles - instead add protocol to protocols
+def condensed_list(mirrorlist, serverlist):
+    """Filter mirrors offering several protocols - add to protocols
     :param mirrorlist: the list to be checked
     :return: new list
     sample FR|http://blackarch.tamcore.eu/$repo/os/$arch|tamcore.eu
            FR|https://blackarch.tamcore.eu/$repo/os/$arch|tamcore.eu
     """
     mirrors = []
-    for mirror in mirrorlist:
-        if mirrors:
-            for item in mirrors:
-                if item["url"] == mirror["url"]:
-                    for proto in enumerate(mirror["protocols"]):
-                        item["protocols"].append(proto[1])
-                    continue
-            mirrors.append(mirror)
-        else:
-            mirrors.append(mirror)
 
+    for mirror in mirrorlist:
+        if mirror["server"] in serverlist:
+            try:
+                idx = next(index for (index, d) in enumerate(mirrorlist) if d["server"] == mirror["server"])
+                mirrors[idx]["protocols"] = mirrors[idx]["protocols"] + mirror["protocols"]
+                mirrors[idx]["protocols"] = sorted(mirrors[idx]["protocols"], reverse=True)
+            except:
+                mirrors.append(mirror)
     return mirrors
 
 
@@ -80,13 +82,17 @@ def get_protocol(url):
 
 def get_server(url):
     """Extract server from url"""
-    pos = url.find("://")
-    return url[pos + 3:]
+    pos1 = url.find("://")
+    server = url[pos1 + 3:]
+    pos2 = server.find("/")
+    server = server[:pos2]
+    return server
 
 
 def get_url(url):
     """Extract mirror url from data"""
     line = url.strip()
     pos = line.find("://")
-    result = line[pos:]
+    result = line[:pos + 3]
     return "{}".format(result.replace("/$repo/os/$arch", ""))
+
